@@ -6,7 +6,7 @@
 .home-nav {
 display: flex;
 gap: 10px;
-justify-content: space-between;
+justify-content:space-between;
 align-items: center;
 }
 
@@ -14,8 +14,8 @@ align-items: center;
  margin: 5px;  
 }
 
-.hone-inner-container {
- display: grid;
+.home-inner-container {
+display: grid;
 grid-template-columns: 2fr 1fr;
 gap: 10px;
 }
