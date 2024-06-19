@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./Home.css"
 import Logo from '../Components/Logo';
 import { Link } from 'react-router-dom';
@@ -8,6 +8,8 @@ import Cart from '../Components/Cart';
 
 
 function Home() {
+  const [cartItems, setCartItems] = useState([]);
+
   return (
     <div className="home-container">
       <div className="home-nav">
@@ -26,8 +28,8 @@ function Home() {
         </div>
       </div>
       <div className="home-inner-container">
-        <MainMenu />
-        <Cart />
+        <MainMenu cartItems={cartItems} setCartItems={setCartItems} />
+        <Cart cartItems={cartItems} setCartItems={setCartItems} />
       </div>
     </div>
   );

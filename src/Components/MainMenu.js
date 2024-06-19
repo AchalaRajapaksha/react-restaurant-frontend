@@ -4,7 +4,7 @@ import axios from "axios"
 import Menuitem from './Menuitem';
 import { api } from '../Config';
 
-function MainMenu() {
+function MainMenu({ cartItems, setCartItems}) {
     const [items, setItems] = useState ([]);
 
   useEffect(() => {
@@ -13,12 +13,23 @@ function MainMenu() {
       setItems(result.data)
     }
     fetchItem();
-},[])
+  }, [])
+  
+  const handleClick = (clickedItem) => { 
+    const newCartItems = [...cartItems];
+    const newItem = {
+      ...clickedItem, Qty:1
+    }
+    newCartItems.push(newItem);
+    setCartItems(newCartItems);
+  }
 
   return (
     <div className='main-menu-container'>
       {items.map((item) => {
-        return <Menuitem key={item.id} item={item} />
+        return <Menuitem key={item.id} item={item} onClick={
+          () => { handleClick(item); }
+        } />
        })}
     </div>
   );
