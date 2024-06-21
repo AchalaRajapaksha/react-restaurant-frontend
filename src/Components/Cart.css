@@ -42,3 +42,9 @@ font-size: 14px;
 display: flex;
 gap: 5px;
 }
+
+.total {
+    text-align: center;
+    padding-top: 10px;
+    font-size: 20px;
+}

@@ -2,7 +2,13 @@ import React from "react";
 import "./Cart.css";
 import Cartitem from "./Cartitem";
 
-function Cart({ cartItems, setCartItems}) {
+function Cart({ cartItems, setCartItems }) {
+  let total = 0;
+
+  cartItems.forEach((item) => {
+    total += item.price*item.Qty;
+  });
+
   return (
     <div className="cart-container">
       <h2>Your order</h2>
@@ -11,6 +17,7 @@ function Cart({ cartItems, setCartItems}) {
 
         )}
       </div>
+      <div className="total">Total: {total}</div>
     </div>
   );
 }

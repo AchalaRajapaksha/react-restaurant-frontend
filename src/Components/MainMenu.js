@@ -3,6 +3,7 @@ import "./MainMenu.css"
 import axios from "axios"
 import Menuitem from './Menuitem';
 import { api } from '../Config';
+import toast from 'react-hot-toast';
 
 function MainMenu({ cartItems, setCartItems}) {
     const [items, setItems] = useState ([]);
@@ -16,6 +17,17 @@ function MainMenu({ cartItems, setCartItems}) {
   }, [])
   
   const handleClick = (clickedItem) => { 
+    const itemFound = cartItems.find((item) => {
+      if (item.id === clickedItem.id) {
+        return true;
+      } else { return false; }
+    })
+    
+    if (itemFound) { 
+      toast.error("Item already added to the cart");
+      return
+    }
+
     const newCartItems = [...cartItems];
     const newItem = {
       ...clickedItem, Qty:1
