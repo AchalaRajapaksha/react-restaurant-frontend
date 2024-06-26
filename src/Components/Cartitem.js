@@ -10,7 +10,7 @@ export default function Cartitem({ item, handleAdd, handleRemove, handleDelete }
       <div className="cart-item-details">
         <h3 className="cart-item-title">{item.name}</h3>
         <h5 className="cart-item-price">
-          Rs. {item.price} x {item.Qty}
+          Rs. {item.price} x {item.qty}
         </h5>
 
         <div className="add-delete-buttons">

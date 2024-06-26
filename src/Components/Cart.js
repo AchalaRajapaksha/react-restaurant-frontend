@@ -10,13 +10,13 @@ function Cart({ cartItems, setCartItems }) {
   let total = 0;
 
   cartItems.forEach((item) => {
-    total += item.price * item.Qty;
+    total += item.price * item.qty;
   });
 
   const handleAdd = (itemID) => {
     const newCartItems = cartItems.map((item) => {
       if (itemID === item.id) {
-        return { ...item, Qty: item.Qty + 1 };
+        return { ...item, qty: item.qty + 1 };
       }
 
       return item;
@@ -26,8 +26,8 @@ function Cart({ cartItems, setCartItems }) {
 
   const handleRemove = (itemID) => {
     const newCartItems = cartItems.map((item) => {
-      if (itemID === item.id && item.Qty > 1) {
-        return { ...item, Qty: item.Qty - 1 };
+      if (itemID === item.id && item.qty > 1) {
+        return { ...item, qty: item.qty - 1 };
       }
 
       return item;
@@ -49,7 +49,8 @@ function Cart({ cartItems, setCartItems }) {
   const placeOrder = async () => {
     try {
       await axios.post(`${api}/item/place-order`, { items: cartItems });
-      toast.success("Order place successfully");
+      toast.success("Order Placed Successfully");
+
       setCartItems([]);
     } catch (err) {
       console.log(err);

@@ -30,7 +30,7 @@ function MainMenu({ cartItems, setCartItems}) {
 
     const newCartItems = [...cartItems];
     const newItem = {
-      ...clickedItem, Qty:1
+      ...clickedItem, qty:1
     }
     newCartItems.push(newItem);
     setCartItems(newCartItems);
